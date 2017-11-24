@@ -1,0 +1,297 @@
+
+//** simple and lightweight mixin library for Sass **
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'utilities/rem';
+
+//** Variables for responsive design in bootstrap with sass **
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'utilities/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'utilities/directional';
+
+//Mixins utilities
+@import 'utilities/theme_variables';
+@import 'utilities/utilities';
+
+/* ================================================================================ */
+
+.typefooter-7{
+
+  .newsletter-footer1{
+    padding: 30px 15px;
+    .newsletter{
+      .title-block{
+        width: 50%;
+        float: $left;
+        text-transform: uppercase;
+        text-align: $left;
+        
+        .page-heading{
+          @include rem(font-size,24px);         
+          font-weight: 600;
+          color: #fff;
+        }
+        .promotext{
+          @include rem(font-size,14px);
+          color: #fff;
+        }
+      }
+      .block_content{
+        width: 50%;
+        float: $left;
+        text-align: $right;
+        form.signup{
+          .form-group{
+    
+            .input-box{
+              background-color: #fff;
+              border-radius: 3px;
+              float: $left;
+              width: 460px;
+              vertical-align: top;
+              padding-#{$left}: 0px;
+              border: 1px solid #ddd;
+              .fa{
+                font-size: 12px;
+                color: #999;
+                /*position: relative;
+                top: -2px;*/
+              }
+            }
+            .subcribe{
+              display: inline-block;
+              vertical-align: top;
+              margin-#{$left}: 10px;
+            }
+
+            #txtemail{
+              width: 93%;
+              height: 44px;
+              line-height: 44px;
+              box-shadow: none;
+              padding: side-values(0 0 0 5px);
+              border: none;
+              @include border-radius(3px);
+              
+              background-color: #fff;
+              &::-moz-placeholder {
+                      color: #aaa;
+                        opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+                    }
+                    &:-ms-input-placeholder { color: #aaa; } // Internet Explorer 10+
+                    &::-webkit-input-placeholder  { color: #aaa; } // Safari and Chrome
+                      &:focus{
+                          z-index: 0;
+                      }
+            }
+          }
+
+          .subcribe button{ 
+          float: $left;          
+            border: 0 none;
+            @include border-radius(3px);
+            color: #fff;
+            font-weight: 400;
+            font-size: 100%;
+            height: 46px;
+            line-height: 46px;
+            padding: 0 22px;    
+            text-transform: uppercase;
+      
+            &:hover{
+              
+            }
+
+            
+          }
+        }
+      }
+    }
+  }
+  /* GENERAL */
+  .modtitle{
+        color: #fff;
+        @include rem(font-size,18px);
+        line-height: 20px;
+        margin-bottom: 10px !important;
+        padding-bottom: 25px;
+        position: relative;
+        font-weight: 600;
+        text-transform: uppercase;
+           &:before {
+            content: "";
+            height: 2px;
+            position: absolute;
+            top: 35px;
+            width: 40px;
+            z-index: 3;
+            background-color: #656565;
+        }      
+  }
+  .box-footer{   
+  padding-top: 57px;
+  padding-bottom: 53px;
+  padding-#{$left}: 15px; 
+    .modcontent{
+      ul{
+        li{           
+              @include link-hover-effect(35px,15px);
+              a{
+                border: 0 none;
+                color: #bbb;
+                @include rem(font-size,12px);
+                padding: 0;       
+                font-weight: 400;   
+              }       
+            }
+      }
+    }
+    &.box-information,
+    &.box-service{
+      padding-left: 0;
+    }
+  }
+  .footer-contact-w{
+    .links-contact {margin-bottom: 15px;}
+         ul.links-contact > li {
+            @include rem(font-size, 12px);
+            line-height: 24px;
+            padding: 7px 0;
+            color: #bbbbbb;
+            .fa {
+                color: #eeeeee;
+                margin-#{$right}: 12px;
+            }
+            .label-footer {                
+              @include rem(font-size, 12px);
+              font-weight: 500;
+              min-width: 60px;
+              display:inline-block;
+              color: #bbbbbb;
+              font-weight: 500;
+            }
+        &.contact-mail{
+          a{
+            color: #bbbbbb;
+          }
+        }
+       }
+  }
+  .socials-wrap{
+      display: inline-block;
+      padding: side-values(10px 0 0 30px);
+      ul{
+        li{
+            float: $left;
+            margin-#{$right}: 10px;
+            margin-bottom: 10px;
+          a{
+             background-color: #2d2d2d;
+              border-radius: 3px;
+              border: none;
+              color: #fff;
+              display: inline-block;
+              font-size: 14px;
+              height: 40px;
+              line-height: 40px;
+              text-align: center;
+              width: 40px;
+              @include transition(all 0.2s ease-in-out 0s);
+              @media (min-width: 1200px) and (max-width: 1366px){
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+              } 
+            &:hover{
+              color: #fff;
+            }
+          }
+        }
+      }
+  }
+
+  .footer-top{
+    background-color: #222;
+    .footer-contact-w{
+      background-color: #1b1b1b;
+      padding-#{$left}: 30px;
+      padding-top: 57px;
+      padding-bottom: 65px;
+    }
+    @include if-ltr {
+      .box-footer.box-information,
+      .box-footer.box-service {
+        box-shadow: -6px -6px 15px -5px rgba(0, 0, 0, 0.2);
+        .module{
+          padding-#{$left}: 30px;
+        }
+      }
+    }
+    @include if-rtl {
+      .box-footer.box-account,
+      .box-footer.box-service {
+        box-shadow: -6px -6px 15px -5px rgba(0, 0, 0, 0.2);
+        .module{
+          padding-#{$left}: 30px;
+        }
+
+      }
+    }
+  }
+  .footer-middle{
+    
+    background-color: #1b1b1b;
+    .middle-left-w{
+      background-color: #151515;
+      padding: 25px 0 15px 0;
+    }
+  }
+  
+  .footer-main{
+
+
+  }
+  /* FOOTER BOTTOM */
+  .footer-bottom{
+    display: inline-flex;
+    width: 100%;
+    color: #888;
+    background-color: #222;
+    a{
+
+    }
+    .payment-w{
+      background-color: #1b1b1b;
+      padding: side-values(40px 15px 40px 30px);
+    }
+    .copyright{
+      margin-top: 10px;
+      text-align: center;
+      font-size: 12px;
+      padding-top: 40px;
+    }
+
+    .footer-payment{
+      text-align: right;
+    }
+
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1366px){
+  .typefooter-7 .newsletter-footer1 .newsletter .block_content form.signup .form-group .input-box{
+    width: 330px;
+  }
+  .typefooter-7 .box-footer{
+    padding-bottom: 78px;
+  }
+  .typefooter-7 .footer-bottom .copyright{
+    margin-top: 0;
+  }
+}

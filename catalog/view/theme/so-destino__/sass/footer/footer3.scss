@@ -1,0 +1,250 @@
+
+//** simple and lightweight mixin library for Sass **
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'utilities/rem';
+
+//** Variables for responsive design in bootstrap with sass **
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'utilities/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'utilities/directional';
+
+//Mixins utilities
+@import 'utilities/theme_variables';
+@import 'utilities/utilities';
+
+/* ================================================================================ */
+
+.typefooter-3{
+  margin-top: 40px;
+  background-color: #f5f5f5;
+  color: #777;
+
+  .newsletter{
+    h3.modtitle{
+      float: $left;
+      width: 33%;
+        @include rem(font-size,28px);         
+        font-weight: 700;
+        color: #333;
+        text-transform: uppercase;
+        span{
+          color: #777;
+          font-size: 14px;
+        }
+    }
+    .title-block{
+      width: 50%;
+      float: $left;
+      text-transform: uppercase;
+      .page-heading{
+        
+      }
+      .pre-text{
+        @include rem(font-size,14px);
+
+      }
+    }
+    .block_content{
+      form{
+        margin-top: 10px;
+      }
+      form.signup{
+        .form-group{
+          display: table;
+          .input-box{
+            background-color: #fff;
+            border-radius: 5px;
+            display: table-cell;
+            vertical-align: top;
+            padding-#{$left}: 25px;
+            border: none;
+            
+            .fa{
+              display: none;
+            }
+          }
+          .subcribe{
+            display: inline-block;
+            vertical-align: top;
+            margin-#{$left}: 5px;
+          }
+
+          #txtemail{
+            width: 357px;
+            height: 33px;
+            line-height: 33px;
+            box-shadow: none;
+            padding: 0;
+            border: none;
+            border-bottom: 1px solid #eee;
+            background-color: #fff;
+            &::-moz-placeholder {
+                    color: #888;
+                      opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+                  }
+                  &:-ms-input-placeholder { color: #888; } // Internet Explorer 10+
+                  &::-webkit-input-placeholder  { color: #888; } // Safari and Chrome
+                    &:focus{
+                        z-index: 0;
+                    }
+          }
+        }
+
+        .subcribe button{           
+          border: 0 none;
+          color: #fff;
+          font-weight: 400;
+          font-size: 100%;
+          height: 33px;
+          line-height: 33px;
+          padding: 0 17px;    
+          text-transform: uppercase;
+          background-color: #333;
+          &:hover{
+            
+          }
+
+          
+        }
+      }
+    }
+  }
+
+  /* GENERAL */
+  .modtitle{
+        color: #333;
+        @include rem(font-size,18px);
+        line-height: 20px;
+        margin-bottom: 10px !important;
+        padding-bottom: 12px;
+        font-weight: 600;
+        text-transform: uppercase;  
+        span{
+          font-weight: 400;
+        }    
+  }
+  .box-footer{    
+    .modcontent{
+      ul{
+        li{           
+              @include link-hover-effect(35px,15px);
+              a{
+                border: 0 none;
+                color: #777;
+                @include rem(font-size,12px);
+                padding: 0;       
+                font-weight: 400;   
+              }       
+            }
+      }
+    }
+    &.box-information,
+    &.box-service{
+      padding-left: 0;
+    }
+  }
+  .contact-us{
+    .links-contact {margin-bottom: 15px;}
+         ul.links-contact > li {
+            @include rem(font-size, 12px);
+            line-height: 24px;
+            padding: 7px 0;
+            color: #777;
+            .fa {
+                color: #777;
+                margin-#{$right}: 13px;
+            }
+        &.contact-mail{
+          a{
+            color: #777;
+          }
+        }
+       }
+  }
+  .socials-wrap{
+    margin-top: 17px;
+      ul{
+        float: $right;
+        li{
+            float: $left;
+            margin-#{$left}: 25px;
+          a{           
+              color: #cecece;
+              @include transition(all 0.2s ease-in-out 0s);
+              font-size: 20px;
+            &:hover{
+              
+            }
+          }
+        }
+      }
+  }
+
+  .app-block{
+    .title-footer{
+      display: table-cell;
+      vertical-align: middle;
+      font-size: 18px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    ul{
+      list-style: none;
+      display: table-cell;
+      vertical-align: middle;
+      padding-left: 30px;
+
+      li{
+        float: left;
+        margin-#{$right}: 10px;
+        margin-bottom: 0;
+
+        &:last-child{
+          margin-#{$right}: 0;
+        }
+      }
+    }
+  }
+
+
+  .footer-top{
+    padding-top: 75px;
+    padding-bottom: 90px;
+    .box-footer1{
+      width: 34%;
+      float: $left;
+    }
+    .box-footer{
+      width: 22%;
+      float: $left;
+    }
+  }
+  .footer-center{
+    background-color: #fff;
+    padding: 65px 0 45px 0;
+  }
+  /* FOOTER BOTTOM */
+  .footer-bottom{
+      color: #777;
+      padding: 30px 0 30px 0;
+      .copyright{
+          margin-top: 5px;
+          text-align: $left;
+          font-size: 12px;
+      }
+
+      .footer-payment{
+        text-align: $right;
+      }
+
+  }
+}

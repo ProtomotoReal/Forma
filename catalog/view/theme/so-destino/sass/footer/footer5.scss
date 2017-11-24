@@ -1,0 +1,239 @@
+
+//** simple and lightweight mixin library for Sass **
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'utilities/rem';
+
+//** Variables for responsive design in bootstrap with sass **
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'utilities/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'utilities/directional';
+
+//Mixins utilities
+@import 'utilities/theme_variables';
+@import 'utilities/utilities';
+
+/* ================================================================================ */
+
+.typefooter-5{
+    max-width: 1860px;
+    margin: 0 auto;
+    background-color: #111;
+    .footer-w{    
+      color: #ccc;
+      max-width: 1720px;
+      margin: 0 auto;
+    }
+    .footer-top{
+      
+      padding: 90px 0 0px 0;
+    }
+    .logo-socials{
+      text-align: center;
+      .socials-footer{
+        margin-top: 40px;
+        li{
+          display: inline-block;
+          
+          a{
+            font-size: 14px;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            margin: 0 5px;
+            border-radius: 100%;
+            background-color: #2d2d2d;
+            @include transition(all 0.2s ease-in-out 0s);
+            display: block;
+            &:hover{
+              //background-color: $background;
+            }
+          }
+          
+        }
+      }
+    }
+
+    /************************************************************************************************
+     POLICY
+  *************************************************************************************************/
+  .box-policy {
+      max-width: 1860px;
+      margin: 0 auto;
+      background-color: #eee;
+      > .col-lg-12{
+          padding: 0;
+      }
+  }
+  .services-inline {
+      padding: 15px;
+    ul {
+      display: table;
+      width: 100%;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: table-cell;
+        width: 33.33%;
+        margin: 0;
+        padding: 75px 0;      
+        vertical-align: top;
+        text-align: center;
+        @include transition(all 0.2s ease-in-out 0s);
+        &:last-child {
+          border: none !important;
+        }
+
+        .box-icon,
+        .service-info {        
+          vertical-align: middle;
+        }
+
+        .box-icon {
+          width: 100px;
+          height: 50px;
+          display: inline-block;
+          margin-bottom: 16px;
+          text-align: center;
+          //@include opacity(0.4);
+          background-image: url(#{$imgPath}icon/sprites.png);
+          background-repeat: no-repeat;
+        }
+
+        .service-info {
+          h2 {
+            font-size: 16px;
+            text-transform: uppercase;
+            color: #222;
+            margin: 5px 0 2px;
+          }
+
+          p {
+            color: #888888;
+            margin: 0;
+          }
+        }
+        &.policy1{
+          .box-icon{
+               background-position: 29px 0;
+          }
+        }
+        &.policy2{
+          .box-icon{
+              background-position: 29px -100px;
+          }
+        }
+        &.policy3{
+          .box-icon{
+              background-position: 29px -200px;
+          }
+        }
+        &:hover{
+          cursor: pointer;
+          background-color: #fff;
+          .box-icon{
+            @include opacity(1);
+          }
+          .service-info{
+              h2{
+                  color: $linkColor;
+              }
+          }
+        }
+      }
+    }
+  }
+  /* GENERAL */
+  .modtitle{
+        color: #fff;
+        @include rem(font-size,18px);
+        line-height: 20px;
+        margin-bottom: 10px !important;
+        padding-bottom: 13px;
+        font-weight: 600;
+        text-transform: uppercase;  
+        span{
+          font-weight: 400;
+        }    
+  }
+  .box-footer{    
+    .modcontent{
+      ul{
+        li{           
+              @include link-hover-effect(35px,15px);
+              a{
+                border: 0 none;
+                color: #ccc;
+                @include rem(font-size,12px);
+                padding: 0;       
+                font-weight: 400;   
+              }       
+            }
+      }
+    }
+    &.box-information,
+    &.box-service{
+      padding-left: 0;
+    }
+  }
+  .contact-us{
+    .links-contact {margin-bottom: 15px;}
+         ul.links-contact > li {
+            @include rem(font-size, 12px);
+            line-height: 24px;
+            padding: 7px 0;
+            color: #ccc;
+            .fa {
+                color: #fff;
+                margin-#{$right}: 13px;
+            }
+        &.contact-mail{
+          a{
+            color: #ccc;
+          }
+        }
+       }
+  }
+
+
+  
+
+  .footer-center{
+    padding-top: 77px;
+    padding-bottom: 48px;
+    .box-footer1{
+      width: 40%;
+      float: $left;
+    }
+    .box-footer{
+      width: 20%;
+      float: $left;
+    }
+  }
+    /* FOOTER BOTTOM */
+  .footer-bottom{
+    border-top: 1px dashed #343434;
+      color: #ccc;
+      padding: 25px 0 20px 0;
+      .copyright{
+          margin-top: 3px;
+          text-align: $left;
+          font-size: 12px;
+      }
+
+      .footer-payment{
+        text-align: $right;
+      }
+
+  }
+}
